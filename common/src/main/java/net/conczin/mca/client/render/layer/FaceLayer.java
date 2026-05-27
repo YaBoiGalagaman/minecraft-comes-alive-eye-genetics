@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
 public class FaceLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends VillagerLayer<T, M> {
-    private static final int FACE_COUNT = 22;
+    private static final int FACE_COUNT = 7;
 
     private final String variant;
 

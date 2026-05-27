@@ -22,6 +22,15 @@ repeat indefinitely!
 MCA Reborn is a rewrite of MCA for Minecraft 1.16.5 and upwards, featuring extended village management, villager
 genetics and various enhancements.
 
+## Fork Information
+
+This is a fork of https://github.com/Luke100000/minecraft-comes-alive by Luke100000.
+
+This fork adds:
+- Eye color genetics based on real world eye color charts
+- Some minor default config changes based on personal preference.
+
+
 ## Compatibilities
 
 MCA is usually compatible with every mod, except when it comes to recognising items (e.g. gifting).
