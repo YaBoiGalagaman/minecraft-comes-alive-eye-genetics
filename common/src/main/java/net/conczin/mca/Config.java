@@ -305,7 +305,7 @@ public final class Config extends CommonConfig {
     /**
      * Time (in ticks) before fatigue resets after interacting with a villager.
      */
-    public int interactionFatigueCooldown = 4800;
+    public int interactionFatigueCooldown = 400;
 
     /**
      * Extra health villagers gain per trading level.
@@ -348,7 +348,7 @@ public final class Config extends CommonConfig {
     /**
      * Time (in ticks) before villagers can procreate again.
      */
-    public int procreationCooldown = 72000;
+    public int procreationCooldown = 6000;
 
 
     /////////////
@@ -487,7 +487,7 @@ public final class Config extends CommonConfig {
     /**
      * Fraction (0–1) of villagers that spawn as guards.
      */
-    public float guardSpawnFraction = 0.175f;
+    public float guardSpawnFraction = 0.0f;
 
     /**
      * Multiplier of taxes paid by villages.
@@ -722,7 +722,7 @@ public final class Config extends CommonConfig {
     /**
      * Use the USA name set instead of international names.
      */
-    public boolean useModernUSANamesOnly = false;
+    public boolean useModernUSANamesOnly = true;
 
     /**
      * Map of entity names to guard attack priorities.

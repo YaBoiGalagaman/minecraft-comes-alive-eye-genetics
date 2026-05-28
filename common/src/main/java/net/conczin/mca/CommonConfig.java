@@ -14,7 +14,7 @@ public class CommonConfig {
     /**
      * Maximum villager lifetime in ticks (Time to grow fully up).
      */
-    public int villagerMaxAgeTime = 384000;
+    public int villagerMaxAgeTime = 576000;
 
     /**
      * If true, allows non-ops to add skins from the library to the server wide pool.
