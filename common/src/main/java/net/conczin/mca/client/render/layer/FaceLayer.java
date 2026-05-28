@@ -45,4 +45,9 @@ public class FaceLayer<T extends LivingEntity, M extends HumanoidModel<T>> exten
 
         return cached("skins/face/" + variant + "/" + gender + "/" + index + blinkTexture + ".png", MCA::locate);
     }
+
+
+    public static int getFaceCount() {
+        return FACE_COUNT;
+    }
 }

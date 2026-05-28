@@ -7,6 +7,7 @@ import net.conczin.mca.util.network.datasync.CDataManager;
 import net.conczin.mca.util.network.datasync.CDataParameter;
 import net.conczin.mca.util.network.datasync.CEnumParameter;
 import net.conczin.mca.util.network.datasync.CParameter;
+import net.conczin.mca.client.render.layer.FaceLayer;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -123,9 +124,35 @@ public class Genetics implements Iterable<Genetics.Gene> {
         return (random.nextFloat() - 0.5F) * 0.35F + temp * 0.4F + 0.1F;
     }
 
+
+    private static int faceIndexFromGene(float g) {
+        int idx = (int)(g * FaceLayer.getFaceCount());
+        if (idx < 0) idx = 0;
+        if (idx >= FaceLayer.getFaceCount()) idx = FaceLayer.getFaceCount() - 1;
+        return idx;
+    }
+
+
     public void combine(Genetics mother, Genetics father) {
         for (GeneType type : GENOMES) {
-            getGenome(type).mutate(mother, father);
+            if (type == FACE) {
+                int momIdx = faceIndexFromGene(mother.getGene(type));
+                boolean momFemale = mother.getGender() == Gender.FEMALE;
+                var momColor = EyeTextureSelector.colorOfIndex(momIdx, momFemale);
+
+                int dadIdx = faceIndexFromGene(father.getGene(type));
+                boolean dadFemale = father.getGender() == Gender.FEMALE;
+                var dadColor = EyeTextureSelector.colorOfIndex(dadIdx, dadFemale);
+
+                var childColor = EyeColorInheritance.inherit(momColor, dadColor, random);
+
+                boolean childFemale = getGender() == Gender.FEMALE;
+                int childIdx = EyeTextureSelector.selectIndex(childColor.name().toLowerCase(), childFemale, random);
+
+                setGene(type, childIdx / (float) FaceLayer.getFaceCount());
+            } else {
+                getGenome(type).mutate(mother, father);
+            }
         }
     }
 
